@@ -15,6 +15,7 @@ public void show() {
    text(number,pos.x+100,pos.y+100);
    stand();
    CompuBrain();
+   whoWon();
 }
 public Card(PVector p) {
   pos = p;
@@ -27,8 +28,8 @@ public void stand() {
   }
   else if (key == 's') {
    PlayerCard.number += 0;
+    GameComplete = true;
    noLoop();
-   GameComplete = true;
   }
   else {
     System.out.println("Invalid Input");
@@ -42,5 +43,27 @@ public void CompuBrain() {
 else {
   DealerCard.number += 0;
 }
+}
+  private void whoWon() {
+  if (DealerCard.number>21) {
+    fill(0);
+    text("Player Wins!",height/2,width/2);
+  }
+  else if (PlayerCard.number>21) {
+    fill(0);
+  text("Dealer Wins!",height/2,width/2); 
+  }
+  else if (DealerCard.number > PlayerCard.number && GameComplete) {
+    fill(0);
+  text("Dealer Wins!",height/2,width/2); 
+  }
+  else if (DealerCard.number < PlayerCard.number && GameComplete) {
+    fill(0);
+    text("Player Wins!",height/2,width/2);
+  }
+  else if (DealerCard.number == PlayerCard.number && GameComplete) {
+    fill(0);
+    text("Tie",height/2,width/2);
+  }
 }
 }
