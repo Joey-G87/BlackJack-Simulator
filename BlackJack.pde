@@ -17,15 +17,4 @@ public void draw() {
  fill(100);
     textSize(20);
     text("Do you wish to hit(h) or stand(s)?",(height/2)-100,(width/2)-100);
-    whoWon();
-}
-
-private void whoWon() {
-  if (DealerCard.number > PlayerCard.number && Card.GameComplete) {
-    fill(0);
-  text("Dealer Wins!",height/2,width/2); 
-  }
-  else if (DealerCard.number < PlayerCard.number && stand(GameComplete)) {
-    text("Dealer Wins!",height/2,width/2);
-  }
 }
