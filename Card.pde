@@ -23,13 +23,13 @@ public Card(PVector p) {
 }
 public void stand() {
   if (key == 'h') {
-   PlayerCard.number += (int)(random(1,14)); 
-   noLoop();
+PlayerCard.number += (int)(random(1,14)); 
+noLoop();
+Restart();
   }
   else if (key == 's') {
    PlayerCard.number += 0;
     GameComplete = true;
-   noLoop();
   }
   else {
     System.out.println("Invalid Input");
@@ -43,6 +43,11 @@ public void CompuBrain() {
 else {
   DealerCard.number += 0;
 }
+}
+public void Restart() {
+  //resets key input, allows for player to "hit" multiple times
+  key = 'q';
+ loop(); 
 }
   private void whoWon() {
   if (DealerCard.number>21) {
