@@ -11,10 +11,14 @@ public void setup() {
    textAlign(CENTER,CENTER);
 }
 public void draw() {
-   background(50,200,50);
+  background(0);
+ //  background(100,100,300);
  DealerCard.show();
  PlayerCard.show();
- fill(100);
-    textSize(20);
-    text("Do you wish to hit(h) or stand(s)?",(height/2)-100,(width/2)-100);
+ fill(255,0,0);
+    textSize(40);
+    text("Do you want to hit(h) or stand(s)?",(height/2)-100,(width/2)-100);
+     fill(255,0,0);
+    textSize(50);
+    text("BlackJack Simulator",(height/2)-100,(width/2)-300);
 }
