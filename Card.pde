@@ -4,6 +4,7 @@ public class Card {
   public int SIZE = 200;
   //allows the win decider to know when the player is done with their turn
   public boolean GameComplete;
+  public PImage img;
 
 public void show() {
   //gives the layout to draw the cards
@@ -19,6 +20,7 @@ public void show() {
    stand();
    CompuBrain();
    whoWon();
+   
 }
 public Card(PVector p) {
   pos = p;
@@ -27,13 +29,10 @@ public Card(PVector p) {
 }
 public void stand() {
  if (key == 'h' && PlayerCard.number<=21) {
-   //slow the game down so it doesn't repeat out of turn
-   frameRate(.0000000001);
 PlayerCard.number += (int)(random(1,14)); 
-noLoop();
+delay(20);
 Restart();
 if (key == 'h') { 
-noLoop();
 }
   }
   //allows the player to end their turn
@@ -47,6 +46,7 @@ noLoop();
 }
 //decides whether the computer should "hit or stand" -based on statistics 
 public void CompuBrain() {
+  //slows down the game so that the player can see the computer's turn
   frameRate(2);
   if (DealerCard.number < 14) {
     DealerCard.number += (int)(random(1,14));
@@ -57,10 +57,7 @@ else {
 }
 public void Restart() {
   //resets key input, allows for player to "hit" multiple times
-  noLoop();
  key = 'a';
- noLoop();
- loop();
 }
 //win decider based on rule that you can't go over 21 and highest card when both players are done wins
   private void whoWon() {
